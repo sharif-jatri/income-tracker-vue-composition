@@ -1,7 +1,7 @@
 <template>
   <TopNavbar :totalIncome="state.totalIncome" />
   <IncomeForm @add-income="addIncome" />
-  <IncomeList :state="state" />
+  <IncomeList :state="state" @remove-item="removeItem" />
 </template>
 
 <script>
@@ -38,12 +38,21 @@ export default {
         value: parseInt(data.value),
         date: data.date,
       }]
+      storeLocalStorage(state)
+    }
+    function removeItem(id) {
+      state.income = state.income.filter(income => income.id != id);
+      storeLocalStorage(state)
+    }
+
+    function storeLocalStorage(state){
       localStorage.setItem('todo', JSON.stringify(state.income))
     }
 
     return{
       state,
-      addIncome
+      addIncome,
+      removeItem
     }
   }
 }

@@ -1,6 +1,6 @@
 <template>
   <div class="income-item">
-<!--    <div class="removeItem" >x</div>-->
+    <div class="removeItem" @click="removeItem">x</div>
     <div class="desc">
       {{ income.description }}
     </div>
@@ -18,6 +18,15 @@ export default {
   name: "IncomeItem",
   props: {
     income: Object
+  },
+  setup(props, {emit}){
+    function removeItem () {
+      emit("remove-item", props.income.id);
+    }
+
+    return{
+      removeItem
+    }
   }
 }
 </script>
@@ -39,6 +48,7 @@ export default {
   line-height: 1;
   text-align: center;
   margin: 0 15px;
+  cursor: pointer;
 }
 .desc {
   color: #666;

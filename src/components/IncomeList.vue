@@ -4,6 +4,7 @@
         v-for="data in state.income"
         :key="data.id"
         :income="data"
+        @remove-item="removeItem"
     />
   </div>
 </template>
@@ -18,6 +19,15 @@ export default {
   },
   props: {
     state: Object
+  },
+  setup(props, {emit}){
+    function removeItem(id) {
+      emit( 'remove-item', id );
+    }
+
+    return{
+      removeItem
+    }
   }
 }
 </script>
