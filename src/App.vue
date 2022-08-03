@@ -1,17 +1,20 @@
 <template>
   <TopNavbar :totalIncome="state.totalIncome" />
   <IncomeForm @add-income="addIncome" />
+  <IncomeList :state="state" />
 </template>
 
 <script>
 import {reactive, computed } from "vue";
 import TopNavbar from "./components/layouts/TopNavbar";
 import IncomeForm from "@/components/IncomeForm";
+import IncomeList from "@/components/IncomeList";
 export default {
   name: 'App',
   components: {
     TopNavbar,
-    IncomeForm
+    IncomeForm,
+    IncomeList,
   },
   setup(){
     const state = reactive({
