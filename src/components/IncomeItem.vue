@@ -20,7 +20,7 @@ export default {
     income: Object
   },
   setup(props, {emit}){
-    function removeItem () {
+    const removeItem =  () => {
       emit("remove-item", props.income.id);
     }
 

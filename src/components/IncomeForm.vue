@@ -22,17 +22,21 @@ export default {
       date: null,
     });
 
-    function formHandler(){
-      console.log(formData)
-      emit('add-income',{
-        description: formData.description,
-        value: formData.value,
-        date: formData.date,
-      })
+    const formHandler = () => {
+      if(formData.description && formData.value && formData.date){
+        emit('add-income',{
+          description: formData.description,
+          value: formData.value,
+          date: formData.date,
+        })
 
-      formData.description = null
-      formData.value = null
-      formData.date = null
+        formData.description = null
+        formData.value = null
+        formData.date = null
+      } else {
+        alert('Please input all values')
+      }
+
     }
 
     return{

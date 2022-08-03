@@ -31,7 +31,7 @@ export default {
       })
     });
 
-    function addIncome(data){
+    const addIncome = (data) => {
       state.income = [...state.income, {
         id: Date.now(),
         description: data.description,
@@ -40,12 +40,12 @@ export default {
       }]
       storeLocalStorage(state)
     }
-    function removeItem(id) {
+    const removeItem = (id) => {
       state.income = state.income.filter(income => income.id != id);
       storeLocalStorage(state)
     }
 
-    function storeLocalStorage(state){
+    const storeLocalStorage = (state) => {
       localStorage.setItem('todo', JSON.stringify(state.income))
     }
 

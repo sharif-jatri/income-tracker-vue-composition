@@ -21,7 +21,7 @@ export default {
     state: Object
   },
   setup(props, {emit}){
-    function removeItem(id) {
+    const  removeItem = (id) => {
       emit( 'remove-item', id );
     }
 
