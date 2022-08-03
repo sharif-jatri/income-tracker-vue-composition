@@ -1,6 +1,6 @@
 <template>
   <div class="income-item">
-    <div class="removeItem" >x</div>
+<!--    <div class="removeItem" >x</div>-->
     <div class="desc">
       {{ income.description }}
     </div>
@@ -26,7 +26,7 @@ export default {
 .income-item {
   position: relative;
   display: flex;
-  padding: 15px 15px 15px 0px;
+  padding: 15px;
   background-color: #FFF;
   border-radius: 8px;
   max-width: 600px;

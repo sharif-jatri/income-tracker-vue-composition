@@ -17,8 +17,9 @@ export default {
     IncomeList,
   },
   setup(){
+    const todo = localStorage.getItem('todo');
     const state = reactive({
-      income: [],
+      income: todo ? JSON.parse(todo) : [],
       totalIncome: computed(() => {
         let temp = 0;
         if(state.income.length > 0){
@@ -37,6 +38,7 @@ export default {
         value: parseInt(data.value),
         date: data.date,
       }]
+      localStorage.setItem('todo', JSON.stringify(state.income))
     }
 
     return{
