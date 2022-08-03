@@ -1,26 +1,44 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <TopNavbar :totalIncome="state.totalIncome" />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import {reactive, computed } from "vue";
+import TopNavbar from "./components/layouts/TopNavbar";
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    TopNavbar
+  },
+  setup(){
+    const state = reactive({
+      income: [],
+      totalIncome: computed(() => {
+        let temp = 0;
+        if(state.income.length > 0){
+          for(let i = 0; i < state.income.length; i++){
+            temp += state.income[i].value;
+          }
+        }
+        return temp;
+      })
+    })
+
+    return{
+      state
+    }
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Fira Sans', sans-serif;
+}
+body {
+  background: #EEE;
 }
 </style>
