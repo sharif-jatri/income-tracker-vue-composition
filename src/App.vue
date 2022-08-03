@@ -1,14 +1,17 @@
 <template>
   <TopNavbar :totalIncome="state.totalIncome" />
+  <IncomeForm @add-income="addIncome" />
 </template>
 
 <script>
 import {reactive, computed } from "vue";
 import TopNavbar from "./components/layouts/TopNavbar";
+import IncomeForm from "@/components/IncomeForm";
 export default {
   name: 'App',
   components: {
-    TopNavbar
+    TopNavbar,
+    IncomeForm
   },
   setup(){
     const state = reactive({
@@ -22,10 +25,20 @@ export default {
         }
         return temp;
       })
-    })
+    });
+
+    function addIncome(data){
+      state.income = [...state.income, {
+        id: Date.now(),
+        description: data.description,
+        value: parseInt(data.value),
+        date: data.date,
+      }]
+    }
 
     return{
-      state
+      state,
+      addIncome
     }
   }
 }
