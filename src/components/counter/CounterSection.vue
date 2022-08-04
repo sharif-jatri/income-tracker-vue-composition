@@ -7,11 +7,12 @@
 </template>
 
 <script>
-import { ref, computed, watch } from "vue";
+import {useCounter} from "@/use/useCounter";
 
 export default {
   name: "CounterSection",
   setup(){
+    /*
     const counter = ref(0)
     const doubleCounter = computed(() => {
       return counter.value * 2;
@@ -23,6 +24,13 @@ export default {
     watch(counter, (newVal, oldVal) => {
       console.log(counter, newVal, oldVal)
     })
+     */
+
+    const {
+      counter,
+      doubleCounter,
+      addOne
+    } = useCounter()
 
     return {
       counter,
