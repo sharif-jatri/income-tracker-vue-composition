@@ -4,6 +4,8 @@
   <IncomeList :state="state" @remove-item="removeItem" />
   <hr />
   <CounterSection />
+  <hr />
+  <EffectCounter />
 </template>
 
 <script>
@@ -12,6 +14,7 @@ import TopNavbar from "@/components/layouts/TopNavbar";
 import IncomeForm from "@/components/IncomeForm";
 import IncomeList from "@/components/IncomeList";
 import CounterSection from "@/components/counter/CounterSection";
+import EffectCounter from "@/components/effectCounter/EffectCounter.vue";
 export default {
   name: 'HomeView',
   components: {
@@ -19,7 +22,8 @@ export default {
     TopNavbar,
     IncomeForm,
     IncomeList,
-  },
+    EffectCounter
+},
   setup(){
     const todo = localStorage.getItem('todo');
     const state = reactive({
