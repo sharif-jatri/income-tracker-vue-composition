@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import {watch, ref, computed} from "vue";
+import { ref, computed, watchEffect} from "vue";
 export default {
   name: "EffectCounter",
   setup(){
@@ -28,11 +28,16 @@ export default {
       return countA.value + countB.value;
     })
     
-    watch([countA, countB], ([newA, newB], [prevA, prevB]) => {
+    // watch([countA, countB], ([newA, newB], [prevA, prevB]) => {
+    //   console.log(countA.value, countB.value)
+    //   console.log(newA, newB, prevA,prevB)
+    // })
+
+    watchEffect(() => {
       console.log(countA.value, countB.value)
-      console.log(newA, newB, prevA,prevB)
+
     })
- 
+
     return {
       countA,
       countB,
@@ -50,3 +55,9 @@ export default {
   margin: 50px;
 }
 </style>
+
+
+
+<!-- If you want to explicitly control the dependencies which will trigger the side-effect, then you must use watch() method. Otherwise, you can use watchEffect() method.
+If you need previous values of the dependencies then you have to use the watch() method.
+If you want to execute the callback function immediately when the component mounts then go with the watchEffect() method. The watch() is useful when you need to perform the method lazily. -->
