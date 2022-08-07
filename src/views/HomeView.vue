@@ -6,6 +6,8 @@
   <CounterSection />
   <hr />
   <EffectCounter />
+  <hr />
+  <NextTick />
 </template>
 
 <script>
@@ -15,6 +17,7 @@ import IncomeForm from "@/components/IncomeForm";
 import IncomeList from "@/components/IncomeList";
 import CounterSection from "@/components/counter/CounterSection";
 import EffectCounter from "@/components/effectCounter/EffectCounter.vue";
+import NextTick from "@/components/nextTick/NextTick.vue";
 export default {
   name: 'HomeView',
   components: {
@@ -22,7 +25,8 @@ export default {
     TopNavbar,
     IncomeForm,
     IncomeList,
-    EffectCounter
+    EffectCounter,
+    NextTick
 },
   setup(){
     const todo = localStorage.getItem('todo');

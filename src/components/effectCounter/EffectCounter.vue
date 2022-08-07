@@ -1,6 +1,6 @@
 <template>
   <div class="counter-section">
-    <h1>watch()</h1>
+    <h1>watch() vs watchEffect()</h1>
     <h3>countA: {{ countA }}</h3>
     <h3>countB: {{ countB }}</h3>
     <h3>A + B: {{ addAB }}</h3>
