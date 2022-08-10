@@ -10,6 +10,8 @@
   <NextTick />
   <hr />
   <DefineComponent />
+  <hr />
+  <RefReactive />
 </template>
 
 <script>
@@ -21,9 +23,11 @@ import CounterSection from "@/components/counter/CounterSection";
 import EffectCounter from "@/components/effectCounter/EffectCounter.vue";
 import NextTick from "@/components/nextTick/NextTick.vue";
 import DefineComponent from "@/components/defineComponent/DefineComponent.vue";
+import RefReactive from "@/components/refReactive/RefReactive";
 export default {
   name: 'HomeView',
   components: {
+    RefReactive,
     CounterSection,
     TopNavbar,
     IncomeForm,

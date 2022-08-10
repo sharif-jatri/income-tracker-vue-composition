@@ -1,7 +1,7 @@
 <template>
   <div class="counter-section">
     <h1>DefineComponent</h1>
-    <DefineComponentChild msg="errsad" />
+    <DefineComponentChild name="Name Props" msg="Messsage" />
   </div>
 </template>
 
@@ -18,4 +18,5 @@ export default {
   text-align: center;
   margin: 50px;
 }
+</style>
 
