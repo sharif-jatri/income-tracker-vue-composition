@@ -12,6 +12,8 @@
   <DefineComponent />
   <hr />
   <RefReactive />
+  <hr />
+  <ReadOnly />
 </template>
 
 <script>
@@ -24,9 +26,11 @@ import EffectCounter from "@/components/effectCounter/EffectCounter.vue";
 import NextTick from "@/components/nextTick/NextTick.vue";
 import DefineComponent from "@/components/defineComponent/DefineComponent.vue";
 import RefReactive from "@/components/refReactive/RefReactive";
+import ReadOnly from "@/components/readonly/ReadOnly";
 export default {
   name: 'HomeView',
   components: {
+    ReadOnly,
     RefReactive,
     CounterSection,
     TopNavbar,
